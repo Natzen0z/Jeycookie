@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
-    # Menampilkan homepage
+    # Halaman homepage
     public function index()
     {
         $categories = ['Cookies', 'Cake', 'Dessert'];

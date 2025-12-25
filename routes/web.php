@@ -90,3 +90,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/transactions/{id}', [AdminTransactionController::class, 'show'])
         ->name('transactions.show');
 });
+
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::view('/about', 'about');
+Route::view('/order', 'order');
+Route::post('/partnership/store', [PartnershipController::class, 'store'])->name('partnership.store');

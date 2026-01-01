@@ -8,9 +8,9 @@
 <section class="hero-card mb-5">
     <div class="row align-items-center">
         <div class="col-lg-6 hero-left">
-            <h1 class="display-4 fw-bold text-gradient">Fresh Cookies & Pastries Everyday 🍪</h1>
+            <h1 class="display-4 fw-bold text-gradient">Enjoy Every Bite Quality Bakes, Curated for You 🍪</h1>
             <p class="lead text-muted mt-3">
-                Nikmati cookies renyah, donut lembut, dan kue-kue premium yang dibuat fresh setiap hari dengan bahan pilihan terbaik. Rasakan kelezatan yang membuat hari-harimu lebih manis!
+                Bakery offering fresh breads, donuts, cookies, <br>and premium snack box for any occasion.
             </p>
 
             <div class="mt-4 d-flex gap-3 flex-wrap">
@@ -131,7 +131,7 @@
         <div class="col-6 col-md-3">
             <div class="category-card">
                 <div class="category-icon">🍪</div>
-                <h6 class="mt-2 mb-0 fw-semibold">Cookies</h6>
+                <h6 class="mt-2 mb-0 fw-semibold">Kue Tampah&Nampah</h6>
             </div>
         </div>
         <div class="col-6 col-md-3">
@@ -143,13 +143,13 @@
         <div class="col-6 col-md-3">
             <div class="category-card">
                 <div class="category-icon">🎂</div>
-                <h6 class="mt-2 mb-0 fw-semibold">Cakes</h6>
+                <h6 class="mt-2 mb-0 fw-semibold">Sweet</h6>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="category-card">
                 <div class="category-icon">🥐</div>
-                <h6 class="mt-2 mb-0 fw-semibold">Pastries</h6>
+                <h6 class="mt-2 mb-0 fw-semibold">salty</h6>
             </div>
         </div>
         @endforelse

@@ -7,9 +7,9 @@
 <!-- Hero Section -->
 <section class="about-hero text-center py-5 mb-5">
     <div class="container">
-        <h1 class="display-4 fw-bold text-gradient mb-3">Tentang Jeycookie</h1>
+        <h1 class="display-4 fw-bold text-gradient mb-3">About Jeycookie</h1>
         <p class="lead text-muted mx-auto" style="max-width: 600px;">
-            Bakery artisan yang menghadirkan kelezatan autentik dengan bahan-bahan premium berkualitas tinggi.
+            Authentic flavors. Premium ingredients.
         </p>
     </div>
 </section>
@@ -23,19 +23,18 @@
                 class="img-fluid rounded-4 shadow">
         </div>
         <div class="col-lg-6">
-            <h2 class="fw-bold mb-4">Cerita Kami</h2>
             <p class="text-muted mb-4">
-                Jeycookie lahir dari kecintaan kami terhadap dunia pastry dan baking. Bermula dari dapur rumahan pada tahun 2020,
-                kami memulai perjalanan dengan mimpi sederhana: membagikan kelezatan cookies dan kue buatan rumah kepada semua orang.
+                Welcome to Jeeycookie, your little corner of happiness in every bite.
+                We believe that cookies aren’t just snacks they’re comfort, warmth, and love made edible.
             </p>
             <p class="text-muted mb-4">
-                Nama "Jeycookie" terinspirasi dari founder kami yang memiliki passion mendalam terhadap cookies.
-                Setiap produk yang kami buat adalah hasil dari eksperimen, riset, dan cinta yang tak terbatas untuk menciptakan
-                rasa yang sempurna.
+                At Jeeycookie, every batch is handcrafted with care using premium ingredients and our special homemade recipes.
+                From chewy chocolate chips to soft butter cookies, each one is baked fresh to give you that perfect balance
+                of sweetness and texture.
             </p>
             <p class="text-muted">
-                Kini, Jeycookie telah berkembang menjadi bakery yang dipercaya oleh ribuan pelanggan setia.
-                Kami tetap berkomitmen pada kualitas, menggunakan bahan-bahan premium, dan menjaga standar rasa yang konsisten.
+                We value quality, creativity, and joy in every creation because every cookie should make you smile.
+                Whether it’s for gifting, sharing, or simply treating yourself, Jeeycookie is here to sweeten your day, one cookie at a time.
             </p>
         </div>
     </div>
@@ -51,9 +50,10 @@
                     <div class="value-icon mx-auto mb-3">
                         <i class="fa-solid fa-heart"></i>
                     </div>
-                    <h5 class="fw-bold">Dibuat dengan Cinta</h5>
+                    <h5 class="fw-bold">Taste You Can Rely On</h5>
                     <p class="text-muted">
-                        Setiap produk dibuat dengan sepenuh hati dan perhatian terhadap detail.
+                        Jeyco menghadirkan rasa yang dapat diandalkan,
+                        baik untuk momen sehari-hari maupun kesempatan spesial.
                     </p>
                 </div>
             </div>
@@ -62,9 +62,10 @@
                     <div class="value-icon mx-auto mb-3">
                         <i class="fa-solid fa-leaf"></i>
                     </div>
-                    <h5 class="fw-bold">Bahan Premium</h5>
+                    <h5 class="fw-bold">Premium Ingredients Only</h5>
                     <p class="text-muted">
-                        Kami hanya menggunakan bahan-bahan berkualitas terbaik untuk produk kami.
+                        Kami menggunakan bahan-bahan pilihan berkualitas tinggi
+                        untuk menghasilkan rasa yang konsisten, autentik, dan memuaskan.
                     </p>
                 </div>
             </div>
@@ -73,9 +74,10 @@
                     <div class="value-icon mx-auto mb-3">
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <h5 class="fw-bold">Kualitas Terjaga</h5>
+                    <h5 class="fw-bold">Consistent Quality</h5>
                     <p class="text-muted">
-                        Standar kualitas yang konsisten untuk setiap produk yang kami hasilkan.
+                        Kualitas adalah prioritas utama kami.
+                        Setiap produk Jeyco melewati proses quality control untuk menjaga standar rasa dan tekstur.
                     </p>
                 </div>
             </div>
@@ -92,7 +94,7 @@
                 <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=200&h=200&fit=crop&facepad=3"
                     alt="Founder"
                     class="team-image mb-3">
-                <h5 class="fw-bold mb-1">Jey</h5>
+                <h5 class="fw-bold mb-1">Latifah Fauzia</h5>
                 <p class="text-muted small">Founder & Head Baker</p>
             </div>
         </div>
@@ -147,11 +149,11 @@
                     </h4>
                     <p class="text-muted mb-2">
                         <i class="fa-solid fa-phone me-2"></i>
-                        +62 812-3456-7890
+                        +62 852-1056-7503
                     </p>
                     <p class="text-muted mb-2">
                         <i class="fa-brands fa-whatsapp me-2"></i>
-                        +62 812-3456-7890 (WhatsApp)
+                        +62 852-1056-7503 (WhatsApp)
                     </p>
                     <p class="text-muted mb-2">
                         <i class="fa-solid fa-envelope me-2"></i>
@@ -159,7 +161,7 @@
                     </p>
                     <p class="text-muted mb-0">
                         <i class="fa-brands fa-instagram me-2"></i>
-                        @jeycookie.id
+                        @jeycookie
                     </p>
                 </div>
             </div>

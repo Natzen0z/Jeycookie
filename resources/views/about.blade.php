@@ -18,8 +18,8 @@
 <section class="mb-5">
     <div class="row align-items-center g-5">
         <div class="col-lg-6">
-            <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=400&fit=crop"
-                alt="Our Bakery"
+            <img src="{{ asset('images/about.jpg') }}"
+                alt="Jeycookie Products"
                 class="img-fluid rounded-4 shadow">
         </div>
         <div class="col-lg-6">
@@ -103,8 +103,8 @@
                 <img src="https://images.unsplash.com/photo-1574966739987-65f38e93b58e?w=200&h=200&fit=crop&facepad=3"
                     alt="Pastry Chef"
                     class="team-image mb-3">
-                <h5 class="fw-bold mb-1">Sarah</h5>
-                <p class="text-muted small">Pastry Chef</p>
+                <h5 class="fw-bold mb-1">M.Irfan Janur Ghifari</h5>
+                <p class="text-muted small">Backend developer</p>
             </div>
         </div>
         <div class="col-md-4 col-lg-3">

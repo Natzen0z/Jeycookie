@@ -38,8 +38,8 @@
                     </div>
                 </div>
                 @if($order->notes)
-                    <hr>
-                    <p class="mb-0"><strong>Notes:</strong> {{ $order->notes }}</p>
+                <hr>
+                <p class="mb-0"><strong>Notes:</strong> {{ $order->notes }}</p>
                 @endif
             </div>
         </div>
@@ -61,22 +61,22 @@
                     </thead>
                     <tbody>
                         @foreach($order->items as $item)
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        @if($item->product && $item->product->image)
-                                            <img src="{{ asset('storage/' . $item->product->image) }}" 
-                                                 alt="{{ $item->product_name }}"
-                                                 class="rounded me-2"
-                                                 style="width: 40px; height: 40px; object-fit: cover;">
-                                        @endif
-                                        {{ $item->product_name }}
-                                    </div>
-                                </td>
-                                <td class="text-center">{{ $item->formatted_price }}</td>
-                                <td class="text-center">{{ $item->quantity }}</td>
-                                <td class="text-end">{{ $item->formatted_subtotal }}</td>
-                            </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    @if($item->product && $item->product->image)
+                                    <img src="{{ asset('storage/' . $item->product->image) }}"
+                                        alt="{{ $item->product_name }}"
+                                        class="rounded me-2"
+                                        style="width: 40px; height: 40px; object-fit: cover;">
+                                    @endif
+                                    {{ $item->product_name }}
+                                </div>
+                            </td>
+                            <td class="text-center">{{ $item->formatted_price }}</td>
+                            <td class="text-center">{{ $item->quantity }}</td>
+                            <td class="text-end">{{ $item->formatted_subtotal }}</td>
+                        </tr>
                         @endforeach
                     </tbody>
                     <tfoot class="table-light">
@@ -89,10 +89,10 @@
                             <td class="text-end">Rp {{ number_format($order->delivery_fee, 0, ',', '.') }}</td>
                         </tr>
                         @if($order->discount > 0)
-                            <tr>
-                                <td colspan="3" class="text-end">Discount</td>
-                                <td class="text-end text-success">- Rp {{ number_format($order->discount, 0, ',', '.') }}</td>
-                            </tr>
+                        <tr>
+                            <td colspan="3" class="text-end">Discount</td>
+                            <td class="text-end text-success">- Rp {{ number_format($order->discount, 0, ',', '.') }}</td>
+                        </tr>
                         @endif
                         <tr>
                             <td colspan="3" class="text-end fw-bold">Total</td>
@@ -119,9 +119,9 @@
                         <label class="form-label">Order Status</label>
                         <select name="status" class="form-select">
                             @foreach($statuses as $key => $label)
-                                <option value="{{ $key }}" {{ $order->status == $key ? 'selected' : '' }}>
-                                    {{ $label }}
-                                </option>
+                            <option value="{{ $key }}" {{ $order->status == $key ? 'selected' : '' }}>
+                                {{ $label }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
@@ -168,22 +168,22 @@
                         <td class="text-end text-uppercase">{{ $order->payment_method }}</td>
                     </tr>
                     @if($order->paid_at)
-                        <tr>
-                            <td class="text-muted">Paid At</td>
-                            <td class="text-end">{{ $order->paid_at->format('d M Y H:i') }}</td>
-                        </tr>
+                    <tr>
+                        <td class="text-muted">Paid At</td>
+                        <td class="text-end">{{ $order->paid_at->format('d M Y H:i') }}</td>
+                    </tr>
                     @endif
                     @if($order->payment_reference)
-                        <tr>
-                            <td class="text-muted">Reference</td>
-                            <td class="text-end"><code>{{ $order->payment_reference }}</code></td>
-                        </tr>
+                    <tr>
+                        <td class="text-muted">Reference</td>
+                        <td class="text-end"><code>{{ $order->payment_reference }}</code></td>
+                    </tr>
                     @endif
                     @if($order->user)
-                        <tr>
-                            <td class="text-muted">User</td>
-                            <td class="text-end">{{ $order->user->email }}</td>
-                        </tr>
+                    <tr>
+                        <td class="text-muted">User</td>
+                        <td class="text-end">{{ $order->user->email }}</td>
+                    </tr>
                     @endif
                 </table>
             </div>

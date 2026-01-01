@@ -47,8 +47,8 @@
 
         <div class="col-lg-6 text-center mt-4 mt-lg-0">
             <div class="hero-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&h=500&fit=crop" 
-                     alt="Delicious Cookies" class="hero-image">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&h=500&fit=crop"
+                    alt="Delicious Cookies" class="hero-image">
                 <div class="hero-image-badge">
                     <span class="badge-discount">20% OFF</span>
                     <span class="badge-text">First Order</span>
@@ -100,58 +100,58 @@
 
     <div class="row g-4">
         @forelse($categories as $category)
-            <div class="col-6 col-md-3">
-                <a href="{{ route('products.category', $category->slug) }}" class="category-card text-decoration-none">
-                    <div class="category-icon">
-                        @switch($category->name)
-                            @case('Cookies')
-                                🍪
-                                @break
-                            @case('Donuts')
-                                🍩
-                                @break
-                            @case('Cakes')
-                                🎂
-                                @break
-                            @case('Brownies')
-                                🍫
-                                @break
-                            @case('Pastries')
-                                🥐
-                                @break
-                            @default
-                                🧁
-                        @endswitch
-                    </div>
-                    <h6 class="mt-2 mb-0 fw-semibold">{{ $category->name }}</h6>
-                    <small class="text-muted">{{ $category->products_count ?? 0 }} products</small>
-                </a>
-            </div>
+        <div class="col-6 col-md-3">
+            <a href="{{ route('products.category', $category->slug) }}" class="category-card text-decoration-none">
+                <div class="category-icon">
+                    @switch($category->name)
+                    @case('Cookies')
+                    🍪
+                    @break
+                    @case('Donuts')
+                    🍩
+                    @break
+                    @case('Cakes')
+                    🎂
+                    @break
+                    @case('Brownies')
+                    🍫
+                    @break
+                    @case('Pastries')
+                    🥐
+                    @break
+                    @default
+                    🧁
+                    @endswitch
+                </div>
+                <h6 class="mt-2 mb-0 fw-semibold">{{ $category->name }}</h6>
+                <small class="text-muted">{{ $category->products_count ?? 0 }} products</small>
+            </a>
+        </div>
         @empty
-            <div class="col-6 col-md-3">
-                <div class="category-card">
-                    <div class="category-icon">🍪</div>
-                    <h6 class="mt-2 mb-0 fw-semibold">Cookies</h6>
-                </div>
+        <div class="col-6 col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍪</div>
+                <h6 class="mt-2 mb-0 fw-semibold">Cookies</h6>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="category-card">
-                    <div class="category-icon">🍩</div>
-                    <h6 class="mt-2 mb-0 fw-semibold">Donuts</h6>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🍩</div>
+                <h6 class="mt-2 mb-0 fw-semibold">Donuts</h6>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="category-card">
-                    <div class="category-icon">🎂</div>
-                    <h6 class="mt-2 mb-0 fw-semibold">Cakes</h6>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🎂</div>
+                <h6 class="mt-2 mb-0 fw-semibold">Cakes</h6>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="category-card">
-                    <div class="category-icon">🥐</div>
-                    <h6 class="mt-2 mb-0 fw-semibold">Pastries</h6>
-                </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="category-card">
+                <div class="category-icon">🥐</div>
+                <h6 class="mt-2 mb-0 fw-semibold">Pastries</h6>
             </div>
+        </div>
         @endforelse
     </div>
 </section>
@@ -170,68 +170,68 @@
 
     <div class="row g-4">
         @forelse($featuredProducts as $product)
-            <div class="col-6 col-lg-3">
-                <div class="product-card h-100">
-                    <div class="product-image-wrapper">
-                        @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image">
-                        @else
-                            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop" 
-                                 alt="{{ $product->name }}" class="product-image">
-                        @endif
-                        @if($product->stock < 5 && $product->stock > 0)
-                            <span class="product-badge bg-warning">Low Stock</span>
+        <div class="col-6 col-lg-3">
+            <div class="product-card h-100">
+                <div class="product-image-wrapper">
+                    @if($product->image)
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image">
+                    @else
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop"
+                        alt="{{ $product->name }}" class="product-image">
+                    @endif
+                    @if($product->stock < 5 && $product->stock > 0)
+                        <span class="product-badge bg-warning">Low Stock</span>
                         @elseif($product->stock == 0)
-                            <span class="product-badge bg-danger">Sold Out</span>
+                        <span class="product-badge bg-danger">Sold Out</span>
                         @endif
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">{{ $product->category->name ?? 'Uncategorized' }}</span>
-                        <h6 class="product-title">{{ $product->name }}</h6>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="product-price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                            @if($product->stock > 0)
-                                <form action="{{ route('cart.add') }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <input type="hidden" name="quantity" value="1">
-                                    <button type="submit" class="btn btn-sm btn-pink">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </button>
-                                </form>
-                            @endif
-                        </div>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">{{ $product->category->name ?? 'Uncategorized' }}</span>
+                    <h6 class="product-title">{{ $product->name }}</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="product-price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                        @if($product->stock > 0)
+                        <form action="{{ route('cart.add') }}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="btn btn-sm btn-pink">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>
+        </div>
         @empty
-            @php
-                $sampleProducts = [
-                    ['title' => 'Chocolate Chip Cookie', 'price' => 15000, 'img' => 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop'],
-                    ['title' => 'Pink Glazed Donut', 'price' => 18000, 'img' => 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=300&fit=crop'],
-                    ['title' => 'Red Velvet Cake', 'price' => 85000, 'img' => 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=300&h=300&fit=crop'],
-                    ['title' => 'Fudge Brownies', 'price' => 25000, 'img' => 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop'],
-                ];
-            @endphp
-            @foreach($sampleProducts as $p)
-                <div class="col-6 col-lg-3">
-                    <div class="product-card h-100">
-                        <div class="product-image-wrapper">
-                            <img src="{{ $p['img'] }}" alt="{{ $p['title'] }}" class="product-image">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-category">Cookies</span>
-                            <h6 class="product-title">{{ $p['title'] }}</h6>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="product-price">Rp {{ number_format($p['price'], 0, ',', '.') }}</span>
-                                <button class="btn btn-sm btn-pink">
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                </button>
-                            </div>
-                        </div>
+        @php
+        $sampleProducts = [
+        ['title' => 'Chocolate Chip Cookie', 'price' => 15000, 'img' => 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop'],
+        ['title' => 'Pink Glazed Donut', 'price' => 18000, 'img' => 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=300&h=300&fit=crop'],
+        ['title' => 'Red Velvet Cake', 'price' => 85000, 'img' => 'https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=300&h=300&fit=crop'],
+        ['title' => 'Fudge Brownies', 'price' => 25000, 'img' => 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop'],
+        ];
+        @endphp
+        @foreach($sampleProducts as $p)
+        <div class="col-6 col-lg-3">
+            <div class="product-card h-100">
+                <div class="product-image-wrapper">
+                    <img src="{{ $p['img'] }}" alt="{{ $p['title'] }}" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Cookies</span>
+                    <h6 class="product-title">{{ $p['title'] }}</h6>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="product-price">Rp {{ number_format($p['price'], 0, ',', '.') }}</span>
+                        <button class="btn btn-sm btn-pink">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
                     </div>
                 </div>
-            @endforeach
+            </div>
+        </div>
+        @endforeach
         @endforelse
     </div>
 </section>
@@ -255,8 +255,8 @@
 <section class="mb-5">
     <div class="row align-items-center g-4">
         <div class="col-lg-6">
-            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&h=400&fit=crop" 
-                 alt="Our Kitchen" class="img-fluid rounded-4 shadow">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&h=400&fit=crop"
+                alt="Our Kitchen" class="img-fluid rounded-4 shadow">
         </div>
         <div class="col-lg-6">
             <h2 class="fw-bold mb-4">Why Choose Jeycookie?</h2>

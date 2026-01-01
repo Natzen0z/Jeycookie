@@ -70,38 +70,38 @@
             </div>
             <div class="card-body p-0">
                 @if($recentOrders->isEmpty())
-                    <div class="text-center py-4 text-muted">
-                        No orders yet
-                    </div>
+                <div class="text-center py-4 text-muted">
+                    No orders yet
+                </div>
                 @else
-                    <table class="table table-hover mb-0">
-                        <thead>
-                            <tr>
-                                <th>Order #</th>
-                                <th>Customer</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($recentOrders as $order)
-                                <tr>
-                                    <td>
-                                        <a href="{{ route('admin.orders.show', $order) }}" class="fw-semibold text-decoration-none">
-                                            {{ $order->order_number }}
-                                        </a>
-                                    </td>
-                                    <td>{{ $order->customer_name }}</td>
-                                    <td>{{ $order->formatted_total }}</td>
-                                    <td>
-                                        <span class="badge bg-{{ $order->status }}">{{ ucfirst($order->status) }}</span>
-                                    </td>
-                                    <td>{{ $order->created_at->format('d M Y') }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($recentOrders as $order)
+                        <tr>
+                            <td>
+                                <a href="{{ route('admin.orders.show', $order) }}" class="fw-semibold text-decoration-none">
+                                    {{ $order->order_number }}
+                                </a>
+                            </td>
+                            <td>{{ $order->customer_name }}</td>
+                            <td>{{ $order->formatted_total }}</td>
+                            <td>
+                                <span class="badge bg-{{ $order->status }}">{{ ucfirst($order->status) }}</span>
+                            </td>
+                            <td>{{ $order->created_at->format('d M Y') }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 @endif
             </div>
         </div>
@@ -115,22 +115,22 @@
             </div>
             <div class="card-body p-0">
                 @if($lowStockProducts->isEmpty())
-                    <div class="text-center py-4 text-muted">
-                        All products have sufficient stock
-                    </div>
+                <div class="text-center py-4 text-muted">
+                    All products have sufficient stock
+                </div>
                 @else
-                    <ul class="list-group list-group-flush">
-                        @foreach($lowStockProducts as $product)
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-semibold">{{ $product->name }}</span>
-                                    <br>
-                                    <small class="text-muted">{{ $product->category->name ?? 'Uncategorized' }}</small>
-                                </div>
-                                <span class="badge bg-warning">{{ $product->stock }} left</span>
-                            </li>
-                        @endforeach
-                    </ul>
+                <ul class="list-group list-group-flush">
+                    @foreach($lowStockProducts as $product)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="fw-semibold">{{ $product->name }}</span>
+                            <br>
+                            <small class="text-muted">{{ $product->category->name ?? 'Uncategorized' }}</small>
+                        </div>
+                        <span class="badge bg-warning">{{ $product->stock }} left</span>
+                    </li>
+                    @endforeach
+                </ul>
                 @endif
             </div>
         </div>
@@ -161,10 +161,24 @@
 
 @push('styles')
 <style>
-    .text-pink { color: #ec4899; }
-    .bg-pink-50 { background: #fdf2f8; }
-    .bg-blue-50 { background: #eff6ff; }
-    .bg-warning-50 { background: #fffbeb; }
-    .bg-success-50 { background: #f0fdf4; }
+    .text-pink {
+        color: #ec4899;
+    }
+
+    .bg-pink-50 {
+        background: #fdf2f8;
+    }
+
+    .bg-blue-50 {
+        background: #eff6ff;
+    }
+
+    .bg-warning-50 {
+        background: #fffbeb;
+    }
+
+    .bg-success-50 {
+        background: #f0fdf4;
+    }
 </style>
 @endpush

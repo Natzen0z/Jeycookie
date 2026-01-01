@@ -29,40 +29,40 @@
             </thead>
             <tbody>
                 @forelse($categories as $category)
-                    <tr>
-                        <td>{{ $category->sort_order }}</td>
-                        <td class="fw-semibold">{{ $category->name }}</td>
-                        <td><code>{{ $category->slug }}</code></td>
-                        <td>
-                            <span class="badge bg-secondary">{{ $category->products_count }} products</span>
-                        </td>
-                        <td>
-                            @if($category->is_active)
-                                <span class="badge bg-success">Active</span>
-                            @else
-                                <span class="badge bg-secondary">Inactive</span>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-sm btn-outline-primary">
-                                <i class="fa-solid fa-edit"></i>
-                            </a>
-                            <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger" 
-                                        onclick="return confirm('Delete this category?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $category->sort_order }}</td>
+                    <td class="fw-semibold">{{ $category->name }}</td>
+                    <td><code>{{ $category->slug }}</code></td>
+                    <td>
+                        <span class="badge bg-secondary">{{ $category->products_count }} products</span>
+                    </td>
+                    <td>
+                        @if($category->is_active)
+                        <span class="badge bg-success">Active</span>
+                        @else
+                        <span class="badge bg-secondary">Inactive</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+                        <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-outline-danger"
+                                onclick="return confirm('Delete this category?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="6" class="text-center py-4 text-muted">
-                            No categories found
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="6" class="text-center py-4 text-muted">
+                        No categories found
+                    </td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

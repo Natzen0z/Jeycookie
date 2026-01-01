@@ -18,23 +18,23 @@
 <section class="mb-5">
     <div class="row align-items-center g-5">
         <div class="col-lg-6">
-            <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=400&fit=crop" 
-                 alt="Our Bakery" 
-                 class="img-fluid rounded-4 shadow">
+            <img src="https://images.unsplash.com/photo-1556217477-d325251ece38?w=600&h=400&fit=crop"
+                alt="Our Bakery"
+                class="img-fluid rounded-4 shadow">
         </div>
         <div class="col-lg-6">
             <h2 class="fw-bold mb-4">Cerita Kami</h2>
             <p class="text-muted mb-4">
-                Jeycookie lahir dari kecintaan kami terhadap dunia pastry dan baking. Bermula dari dapur rumahan pada tahun 2020, 
+                Jeycookie lahir dari kecintaan kami terhadap dunia pastry dan baking. Bermula dari dapur rumahan pada tahun 2020,
                 kami memulai perjalanan dengan mimpi sederhana: membagikan kelezatan cookies dan kue buatan rumah kepada semua orang.
             </p>
             <p class="text-muted mb-4">
-                Nama "Jeycookie" terinspirasi dari founder kami yang memiliki passion mendalam terhadap cookies. 
-                Setiap produk yang kami buat adalah hasil dari eksperimen, riset, dan cinta yang tak terbatas untuk menciptakan 
+                Nama "Jeycookie" terinspirasi dari founder kami yang memiliki passion mendalam terhadap cookies.
+                Setiap produk yang kami buat adalah hasil dari eksperimen, riset, dan cinta yang tak terbatas untuk menciptakan
                 rasa yang sempurna.
             </p>
             <p class="text-muted">
-                Kini, Jeycookie telah berkembang menjadi bakery yang dipercaya oleh ribuan pelanggan setia. 
+                Kini, Jeycookie telah berkembang menjadi bakery yang dipercaya oleh ribuan pelanggan setia.
                 Kami tetap berkomitmen pada kualitas, menggunakan bahan-bahan premium, dan menjaga standar rasa yang konsisten.
             </p>
         </div>
@@ -89,27 +89,27 @@
     <div class="row g-4 justify-content-center">
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=200&h=200&fit=crop&facepad=3" 
-                     alt="Founder" 
-                     class="team-image mb-3">
+                <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=200&h=200&fit=crop&facepad=3"
+                    alt="Founder"
+                    class="team-image mb-3">
                 <h5 class="fw-bold mb-1">Jey</h5>
                 <p class="text-muted small">Founder & Head Baker</p>
             </div>
         </div>
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1574966739987-65f38e93b58e?w=200&h=200&fit=crop&facepad=3" 
-                     alt="Pastry Chef" 
-                     class="team-image mb-3">
+                <img src="https://images.unsplash.com/photo-1574966739987-65f38e93b58e?w=200&h=200&fit=crop&facepad=3"
+                    alt="Pastry Chef"
+                    class="team-image mb-3">
                 <h5 class="fw-bold mb-1">Sarah</h5>
                 <p class="text-muted small">Pastry Chef</p>
             </div>
         </div>
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=200&h=200&fit=crop&facepad=3" 
-                     alt="Creative" 
-                     class="team-image mb-3">
+                <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=200&h=200&fit=crop&facepad=3"
+                    alt="Creative"
+                    class="team-image mb-3">
                 <h5 class="fw-bold mb-1">Maya</h5>
                 <p class="text-muted small">Creative Director</p>
             </div>
@@ -185,7 +185,7 @@
         border-radius: var(--radius-xl);
         margin-top: -1rem;
     }
-    
+
     .value-icon {
         width: 80px;
         height: 80px;
@@ -197,7 +197,7 @@
         font-size: 2rem;
         color: white;
     }
-    
+
     .team-image {
         width: 150px;
         height: 150px;
@@ -205,7 +205,7 @@
         object-fit: cover;
         border: 4px solid var(--pink-100);
     }
-    
+
     .team-card {
         padding: 1.5rem;
         background: white;
@@ -213,11 +213,11 @@
         box-shadow: var(--shadow);
         transition: transform 0.3s ease;
     }
-    
+
     .team-card:hover {
         transform: translateY(-5px);
     }
-    
+
     .text-pink {
         color: var(--pink-600);
     }

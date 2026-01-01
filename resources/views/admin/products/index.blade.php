@@ -25,9 +25,9 @@
                 <select name="category" class="form-select">
                     <option value="">All Categories</option>
                     @foreach($categories as $cat)
-                        <option value="{{ $cat->id }}" {{ request('category') == $cat->id ? 'selected' : '' }}>
-                            {{ $cat->name }}
-                        </option>
+                    <option value="{{ $cat->id }}" {{ request('category') == $cat->id ? 'selected' : '' }}>
+                        {{ $cat->name }}
+                    </option>
                     @endforeach
                 </select>
             </div>
@@ -65,64 +65,64 @@
             </thead>
             <tbody>
                 @forelse($products as $product)
-                    <tr>
-                        <td>
-                            @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" 
-                                     alt="{{ $product->name }}"
-                                     class="rounded"
-                                     style="width: 50px; height: 50px; object-fit: cover;">
+                <tr>
+                    <td>
+                        @if($product->image)
+                        <img src="{{ asset('storage/' . $product->image) }}"
+                            alt="{{ $product->name }}"
+                            class="rounded"
+                            style="width: 50px; height: 50px; object-fit: cover;">
+                        @else
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-image text-muted"></i>
+                        </div>
+                        @endif
+                    </td>
+                    <td>
+                        <span class="fw-semibold">{{ $product->name }}</span>
+                        @if($product->is_featured)
+                        <span class="badge bg-warning ms-1">Featured</span>
+                        @endif
+                    </td>
+                    <td>{{ $product->category->name ?? '-' }}</td>
+                    <td>{{ $product->formatted_price }}</td>
+                    <td>
+                        @if($product->stock == 0)
+                        <span class="badge bg-danger">Out of Stock</span>
+                        @elseif($product->stock < 5)
+                            <span class="badge bg-warning">{{ $product->stock }}</span>
                             @else
-                                <div class="bg-light rounded d-flex align-items-center justify-content-center" 
-                                     style="width: 50px; height: 50px;">
-                                    <i class="fa-solid fa-image text-muted"></i>
-                                </div>
+                            <span class="badge bg-success">{{ $product->stock }}</span>
                             @endif
-                        </td>
-                        <td>
-                            <span class="fw-semibold">{{ $product->name }}</span>
-                            @if($product->is_featured)
-                                <span class="badge bg-warning ms-1">Featured</span>
-                            @endif
-                        </td>
-                        <td>{{ $product->category->name ?? '-' }}</td>
-                        <td>{{ $product->formatted_price }}</td>
-                        <td>
-                            @if($product->stock == 0)
-                                <span class="badge bg-danger">Out of Stock</span>
-                            @elseif($product->stock < 5)
-                                <span class="badge bg-warning">{{ $product->stock }}</span>
-                            @else
-                                <span class="badge bg-success">{{ $product->stock }}</span>
-                            @endif
-                        </td>
-                        <td>
-                            @if($product->is_active)
-                                <span class="badge bg-success">Active</span>
-                            @else
-                                <span class="badge bg-secondary">Inactive</span>
-                            @endif
-                        </td>
-                        <td>
-                            <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-sm btn-outline-primary">
-                                <i class="fa-solid fa-edit"></i>
-                            </a>
-                            <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger" 
-                                        onclick="return confirm('Delete this product?')">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+                    </td>
+                    <td>
+                        @if($product->is_active)
+                        <span class="badge bg-success">Active</span>
+                        @else
+                        <span class="badge bg-secondary">Inactive</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+                        <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-outline-danger"
+                                onclick="return confirm('Delete this product?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="7" class="text-center py-4 text-muted">
-                            No products found
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="7" class="text-center py-4 text-muted">
+                        No products found
+                    </td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

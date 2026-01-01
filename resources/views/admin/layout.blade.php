@@ -44,7 +44,7 @@
             display: flex;
             align-items: center;
             padding: 0.5rem 0 1.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 1.5rem;
         }
 
@@ -67,7 +67,7 @@
         }
 
         .admin-sidebar .nav-link {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             padding: 0.75rem 1rem;
             border-radius: 8px;
             margin-bottom: 0.25rem;
@@ -88,7 +88,7 @@
         }
 
         .admin-sidebar .nav-section {
-            color: rgba(255,255,255,0.4);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -119,7 +119,7 @@
             background: white;
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             border-left: 4px solid var(--pink-500);
         }
 
@@ -148,7 +148,7 @@
         .card {
             border: none;
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
@@ -179,23 +179,42 @@
         }
 
         /* Forms */
-        .form-control, .form-select {
+        .form-control,
+        .form-select {
             border-radius: 8px;
             padding: 0.625rem 1rem;
         }
 
-        .form-control:focus, .form-select:focus {
+        .form-control:focus,
+        .form-select:focus {
             border-color: var(--pink-500);
             box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
         }
 
         /* Badge colors */
-        .badge.bg-pending { background: #f59e0b !important; }
-        .badge.bg-paid { background: #3b82f6 !important; }
-        .badge.bg-processing { background: #8b5cf6 !important; }
-        .badge.bg-shipped { background: #6366f1 !important; }
-        .badge.bg-completed { background: #10b981 !important; }
-        .badge.bg-cancelled { background: #ef4444 !important; }
+        .badge.bg-pending {
+            background: #f59e0b !important;
+        }
+
+        .badge.bg-paid {
+            background: #3b82f6 !important;
+        }
+
+        .badge.bg-processing {
+            background: #8b5cf6 !important;
+        }
+
+        .badge.bg-shipped {
+            background: #6366f1 !important;
+        }
+
+        .badge.bg-completed {
+            background: #10b981 !important;
+        }
+
+        .badge.bg-cancelled {
+            background: #ef4444 !important;
+        }
     </style>
 
     @stack('styles')
@@ -211,38 +230,38 @@
 
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" 
-                   href="{{ route('admin.dashboard') }}">
+                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+                    href="{{ route('admin.dashboard') }}">
                     <i class="fa-solid fa-gauge"></i> Dashboard
                 </a>
             </li>
 
             <div class="nav-section">Products</div>
-            
+
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.products.index') }}">
+                <a class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}"
+                    href="{{ route('admin.products.index') }}">
                     <i class="fa-solid fa-box"></i> Products
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.categories.index') }}">
+                <a class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}"
+                    href="{{ route('admin.categories.index') }}">
                     <i class="fa-solid fa-tags"></i> Categories
                 </a>
             </li>
 
             <div class="nav-section">Orders</div>
-            
+
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index') }}">
+                <a class="nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}"
+                    href="{{ route('admin.orders.index') }}">
                     <i class="fa-solid fa-shopping-cart"></i> Orders
                 </a>
             </li>
 
             <div class="nav-section">Account</div>
-            
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('home') }}">
                     <i class="fa-solid fa-store"></i> View Store
@@ -274,16 +293,16 @@
         <!-- Flash Messages -->
         <div class="admin-content pb-0">
             @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fa-solid fa-check-circle me-2"></i> {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-check-circle me-2"></i> {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
             @endif
             @if(session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fa-solid fa-exclamation-circle me-2"></i> {{ session('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-exclamation-circle me-2"></i> {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
             @endif
         </div>
 
@@ -311,12 +330,12 @@
                             <label for="logout_password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="logout_password" 
-                                       name="password" 
-                                       placeholder="Masukkan password Anda"
-                                       required>
+                                <input type="password"
+                                    class="form-control"
+                                    id="logout_password"
+                                    name="password"
+                                    placeholder="Masukkan password Anda"
+                                    required>
                                 <button class="btn btn-outline-secondary" type="button" onclick="toggleLogoutPassword()">
                                     <i class="fa-solid fa-eye" id="toggleLogoutIcon"></i>
                                 </button>
@@ -339,31 +358,23 @@
 
     <script>
         function toggleLogoutPassword() {
-            const passwordInput = document.getElementById('logout_password');
-            const toggleIcon = document.getElementById('toggleLogoutIcon');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('fa-eye');
-                toggleIcon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('fa-eye-slash');
-                toggleIcon.classList.add('fa-eye');
-            }
+            ...
         }
 
-        // Show modal if there was a logout error
-        @if(session('error') && str_contains(session('error'), 'Password'))
-            document.addEventListener('DOMContentLoaded', function() {
-                var logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+        document.addEventListener('DOMContentLoaded', function() {
+            const showLogoutModal = {
+                {
+                    session('error') && str_contains(session('error'), 'Password') ?
+                        'true' :
+                        'false'
+                }
+            };
+
+            if (showLogoutModal) {
+                const logoutModal = new bootstrap.Modal(
+                    document.getElementById('logoutModal')
+                );
                 logoutModal.show();
-            });
-        @endif
+            }
+        });
     </script>
-
-    @stack('scripts')
-</body>
-
-</html>
-

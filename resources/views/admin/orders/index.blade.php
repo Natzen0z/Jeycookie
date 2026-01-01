@@ -22,9 +22,9 @@
                 <select name="status" class="form-select">
                     <option value="">All Status</option>
                     @foreach($statuses as $key => $label)
-                        <option value="{{ $key }}" {{ request('status') == $key ? 'selected' : '' }}>
-                            {{ $label }}
-                        </option>
+                    <option value="{{ $key }}" {{ request('status') == $key ? 'selected' : '' }}>
+                        {{ $label }}
+                    </option>
                     @endforeach
                 </select>
             </div>
@@ -66,38 +66,38 @@
             </thead>
             <tbody>
                 @forelse($orders as $order)
-                    <tr>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $order) }}" class="fw-semibold text-decoration-none">
-                                {{ $order->order_number }}
-                            </a>
-                        </td>
-                        <td>
-                            {{ $order->customer_name }}
-                            <br>
-                            <small class="text-muted">{{ $order->customer_phone }}</small>
-                        </td>
-                        <td>{{ $order->items->count() }} items</td>
-                        <td class="fw-semibold">{{ $order->formatted_total }}</td>
-                        <td>
-                            <span class="badge bg-{{ $order->status }}">{{ ucfirst($order->status) }}</span>
-                        </td>
-                        <td>
-                            <span class="badge {{ $order->payment_badge_class }}">{{ ucfirst($order->payment_status) }}</span>
-                        </td>
-                        <td>{{ $order->created_at->format('d M Y H:i') }}</td>
-                        <td>
-                            <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-sm btn-outline-primary">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('admin.orders.show', $order) }}" class="fw-semibold text-decoration-none">
+                            {{ $order->order_number }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ $order->customer_name }}
+                        <br>
+                        <small class="text-muted">{{ $order->customer_phone }}</small>
+                    </td>
+                    <td>{{ $order->items->count() }} items</td>
+                    <td class="fw-semibold">{{ $order->formatted_total }}</td>
+                    <td>
+                        <span class="badge bg-{{ $order->status }}">{{ ucfirst($order->status) }}</span>
+                    </td>
+                    <td>
+                        <span class="badge {{ $order->payment_badge_class }}">{{ ucfirst($order->payment_status) }}</span>
+                    </td>
+                    <td>{{ $order->created_at->format('d M Y H:i') }}</td>
+                    <td>
+                        <a href="{{ route('admin.orders.show', $order) }}" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
                 @empty
-                    <tr>
-                        <td colspan="8" class="text-center py-4 text-muted">
-                            No orders found
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="8" class="text-center py-4 text-muted">
+                        No orders found
+                    </td>
+                </tr>
                 @endforelse
             </tbody>
         </table>

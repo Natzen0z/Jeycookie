@@ -224,7 +224,7 @@
     <!-- Sidebar -->
     <nav class="admin-sidebar">
         <div class="brand">
-            <div class="brand-icon">🍪</div>
+            <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="brand-logo" style="height: 45px; width: auto; border-radius: 10px;">
             <span class="brand-text">Jeycookie</span>
         </div>
 

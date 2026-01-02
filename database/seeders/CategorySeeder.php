@@ -15,34 +15,24 @@ class CategorySeeder extends Seeder
     {
         $categories = [
             [
-                'name' => 'Cookies',
-                'description' => 'Aneka cookies lezat dengan berbagai rasa dan bentuk yang menggugah selera.',
+                'name' => 'Sweet',
+                'description' => 'Aneka kue dan camilan manis yang lezat untuk menemani hari Anda.',
                 'sort_order' => 1,
             ],
             [
-                'name' => 'Cakes',
-                'description' => 'Kue ulang tahun dan kue spesial untuk berbagai acara istimewa Anda.',
+                'name' => 'Savory',
+                'description' => 'Pilihan camilan gurih dan asin yang cocok untuk semua selera.',
                 'sort_order' => 2,
             ],
             [
-                'name' => 'Brownies',
-                'description' => 'Brownies cokelat yang lembut dan fudgy dengan berbagai topping.',
+                'name' => 'Donut',
+                'description' => 'Donat lembut dengan berbagai topping dan isian yang menggugah selera.',
                 'sort_order' => 3,
             ],
             [
-                'name' => 'Pastries',
-                'description' => 'Pastry segar dan renyah dengan isian yang beragam.',
+                'name' => 'Traditional Cake Platter & Tray',
+                'description' => 'Hidangan kue tradisional dalam platter dan tray untuk acara spesial Anda.',
                 'sort_order' => 4,
-            ],
-            [
-                'name' => 'Bread',
-                'description' => 'Roti segar yang dipanggang setiap hari dengan bahan berkualitas.',
-                'sort_order' => 5,
-            ],
-            [
-                'name' => 'Special',
-                'description' => 'Menu spesial dan limited edition untuk Anda yang suka mencoba hal baru.',
-                'sort_order' => 6,
             ],
         ];
 

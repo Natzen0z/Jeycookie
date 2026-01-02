@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm navbar-custom">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <div class="brand-badge">🍪</div>
+                <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="brand-logo" style="height: 45px; width: auto;">
                 <span class="ms-2 brand-text">Jeycookie</span>
             </a>
 
@@ -149,10 +149,10 @@
             <div class="row g-4">
                 <div class="col-lg-4">
                     <div class="d-flex align-items-center mb-3">
-                        <div class="brand-badge-footer">🍪</div>
+                        <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="footer-logo" style="height: 50px; width: auto;">
                         <span class="ms-2 fs-4 fw-bold">Jeycookie</span>
                     </div>
-                    <p class="text-muted">Fresh homemade bakery products made with love. Premium ingredients, baked fresh daily.</p>
+                    <p class="text-white-50">Fresh homemade bakery products made with love. Premium ingredients, baked fresh daily.</p>
                     <div class="d-flex gap-3 mt-3">
                         <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
@@ -170,15 +170,15 @@
                 <div class="col-lg-3">
                     <h6 class="fw-bold mb-3">Categories</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">Donuts</a></li>
-                        <li><a href="#">Cakes</a></li>
-                        <li><a href="#">Brownies</a></li>
+                        <li><a href="#">Sweet</a></li>
+                        <li><a href="#">Savory</a></li>
+                        <li><a href="#">Donut</a></li>
+                        <li><a href="#">Traditional Cake</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h6 class="fw-bold mb-3">Contact Us</h6>
-                    <ul class="list-unstyled text-muted">
+                    <ul class="list-unstyled text-white-50">
                         <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> Jakarta, Indonesia</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +62 812-3456-7890</li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> hello@jeycookie.com</li>
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <hr class="my-4 border-secondary">
-            <div class="text-center text-muted">
+            <div class="text-center text-white-50">
                 <small>&copy; {{ date('Y') }} Jeycookie. All rights reserved. Freshly baked with <i class="fa-solid fa-heart text-danger"></i></small>
             </div>
         </div>

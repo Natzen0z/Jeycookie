@@ -358,23 +358,30 @@
 
     <script>
         function toggleLogoutPassword() {
-            ...
+            const passwordInput = document.getElementById('logout_password');
+            const toggleIcon = document.getElementById('toggleLogoutIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
         }
 
+        // Show modal if there was a logout error
+        @if(session('error') && str_contains(session('error'), 'Password'))
         document.addEventListener('DOMContentLoaded', function() {
-            const showLogoutModal = {
-                {
-                    session('error') && str_contains(session('error'), 'Password') ?
-                        'true' :
-                        'false'
-                }
-            };
-
-            if (showLogoutModal) {
-                const logoutModal = new bootstrap.Modal(
-                    document.getElementById('logoutModal')
-                );
-                logoutModal.show();
-            }
+            var logoutModal = new bootstrap.Modal(document.getElementById('logoutModal'));
+            logoutModal.show();
         });
+        @endif
     </script>
+
+    @stack('scripts')
+</body>
+
+</html>

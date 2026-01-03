@@ -106,7 +106,13 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if($item['image'])
+                                            @if($item['product'] && $item['product']->image_url)
+                                                <img src="{{ $item['product']->thumbnail_url ?? $item['product']->image_url }}" 
+                                                     alt="{{ $item['name'] }}" 
+                                                     class="rounded me-2"
+                                                     style="width: 50px; height: 50px; object-fit: cover;"
+                                                     loading="lazy">
+                                            @elseif($item['image'])
                                                 <img src="{{ asset('storage/' . $item['image']) }}" 
                                                      alt="{{ $item['name'] }}" 
                                                      class="rounded me-2"

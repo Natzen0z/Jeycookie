@@ -41,7 +41,13 @@
                         <div class="cart-item-row d-flex align-items-center p-3 border-bottom {{ !$item['in_stock'] ? 'bg-light' : '' }}">
                             <!-- Product Image -->
                             <div class="cart-item-image me-3">
-                                @if($item['image'])
+                                @if($item['product'] && $item['product']->image_url)
+                                    <img src="{{ $item['product']->thumbnail_url ?? $item['product']->image_url }}" 
+                                         alt="{{ $item['name'] }}" 
+                                         class="rounded" 
+                                         style="width: 80px; height: 80px; object-fit: cover;"
+                                         loading="lazy">
+                                @elseif($item['image'])
                                     <img src="{{ asset('storage/' . $item['image']) }}" 
                                          alt="{{ $item['name'] }}" 
                                          class="rounded" 

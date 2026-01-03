@@ -112,7 +112,7 @@
                 <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=200&h=200&fit=crop&facepad=3"
                     alt="Creative"
                     class="team-image mb-3">
-                <h5 class="fw-bold mb-1">Maya</h5>
+                <h5 class="fw-bold mb-1">Muhamad Kaisar Hudayef</h5>
                 <p class="text-muted small">Creative Director</p>
             </div>
         </div>
@@ -130,9 +130,9 @@
                     </h4>
                     <p class="text-muted mb-3">
                         <strong>Jeycookie Bakery</strong><br>
-                        Jl. Bakery No. 123<br>
-                        Kelurahan Manis, Kecamatan Lezat<br>
-                        Jakarta Selatan 12345
+                        Jl.pakis, RT.8/RW.5,<br>
+                        Griya pakis No.10-B,kel.beji,<br>
+                        kota depok, jawa barat
                     </p>
                     <p class="text-muted mb-0">
                         <i class="fa-solid fa-clock me-2"></i>

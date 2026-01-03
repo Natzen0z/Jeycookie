@@ -131,7 +131,7 @@
         <div class="col-6 col-md-3">
             <div class="category-card">
                 <div class="category-icon">🍪</div>
-                <h6 class="mt-2 mb-0 fw-semibold">Kue Tampah&Nampah</h6>
+                <h6 class="mt-2 mb-0 fw-semibold">Traditional Cake</h6>
             </div>
         </div>
         <div class="col-6 col-md-3">
@@ -309,11 +309,13 @@
                     <i class="fa-solid fa-star text-warning"></i>
                     <i class="fa-solid fa-star text-warning"></i>
                 </div>
-                <p class="testimonial-text">"Cookies-nya enak banget! Renyah di luar, chewy di dalam. Pasti repeat order!"</p>
+                <p class="testimonial-text">"suka bangeet snackbox nyaa!! bolunya enak dan rasanyaa beda banget sama bolu-bolu di tempat lain.
+                    risoles bolognaise nya juga enakk bangeet, tadi dapet review dari tamu yg premium kalau isiannya mewah
+                    intinya rating snack box 9,5/10 enak binggo sampe banyaak yg pengen nambah"</p>
                 <div class="testimonial-author">
                     <img src="https://i.pravatar.cc/50?img=1" alt="Customer" class="testimonial-avatar">
                     <div>
-                        <h6 class="mb-0 fw-semibold">Sarah M.</h6>
+                        <h6 class="mb-0 fw-semibold">Universitas Muhammadiyah Dr. Hamka</h6>
                         <small class="text-muted">Jakarta</small>
                     </div>
                 </div>
@@ -328,11 +330,13 @@
                     <i class="fa-solid fa-star text-warning"></i>
                     <i class="fa-solid fa-star text-warning"></i>
                 </div>
-                <p class="testimonial-text">"Pengiriman cepat dan packaging-nya rapi. Brownies-nya juara!"</p>
+                <p class="testimonial-text">"Roti, risol, dadar gulungnyaa enak semuaa.. anak" & volunteer pd sukaa!!
+                    Pengirimannya jg pas bgtt ga telatt dan ga repott (karna jujur aku ga terus"an buka hp gituu untuk cek konsum udh dmn)
+                    tbtb udh sampee ajaa depan Rumah Belajarnya"</p>
                 <div class="testimonial-author">
                     <img src="https://i.pravatar.cc/50?img=3" alt="Customer" class="testimonial-avatar">
                     <div>
-                        <h6 class="mb-0 fw-semibold">Andi K.</h6>
+                        <h6 class="mb-0 fw-semibold">Kominitas Kindy Seeds</h6>
                         <small class="text-muted">Bandung</small>
                     </div>
                 </div>
@@ -347,12 +351,12 @@
                     <i class="fa-solid fa-star text-warning"></i>
                     <i class="fa-solid fa-star-half-stroke text-warning"></i>
                 </div>
-                <p class="testimonial-text">"Red velvet cake-nya lembut dan tidak terlalu manis. Cocok untuk yang tidak suka terlalu manis."</p>
+                <p class="testimonial-text">"enakkkk bgttt kaak susnya, tekstur flanya lembut banget,kayak ice cream creamy bgtt."</p>
                 <div class="testimonial-author">
                     <img src="https://i.pravatar.cc/50?img=5" alt="Customer" class="testimonial-avatar">
                     <div>
-                        <h6 class="mb-0 fw-semibold">Maya R.</h6>
-                        <small class="text-muted">Surabaya</small>
+                        <h6 class="mb-0 fw-semibold">Ulan</h6>
+                        <small class="text-muted">Depok</small>
                     </div>
                 </div>
             </div>

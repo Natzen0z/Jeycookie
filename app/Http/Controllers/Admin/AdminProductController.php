@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
-use App\Services\CloudinaryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -83,11 +82,9 @@ class AdminProductController extends Controller
             $validated['slug'] = $originalSlug . '-' . $count++;
         }
 
-        // Handle image upload to Cloudinary
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $cloudinary = app(CloudinaryService::class);
-            $result = $cloudinary->upload($request->file('image'), 'products');
-            $validated['image'] = $result['public_id'];
+            $validated['image'] = $request->file('image')->store('products', 'public');
         }
 
         // Set defaults
@@ -146,20 +143,13 @@ class AdminProductController extends Controller
             }
         }
 
-        // Handle image upload to Cloudinary
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $cloudinary = app(CloudinaryService::class);
-            
-            // Delete old image from Cloudinary
-            if ($product->image && $cloudinary->isCloudinaryImage($product->image)) {
-                $cloudinary->delete($product->image);
-            } elseif ($product->image) {
-                // Delete from local storage if it's a local image
+            // Delete old image
+            if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
-            
-            $result = $cloudinary->upload($request->file('image'), 'products');
-            $validated['image'] = $result['public_id'];
+            $validated['image'] = $request->file('image')->store('products', 'public');
         }
 
         // Set boolean values
@@ -177,15 +167,9 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // Delete image from Cloudinary or local storage
+        // Delete image
         if ($product->image) {
-            $cloudinary = app(CloudinaryService::class);
-            
-            if ($cloudinary->isCloudinaryImage($product->image)) {
-                $cloudinary->delete($product->image);
-            } else {
-                Storage::disk('public')->delete($product->image);
-            }
+            Storage::disk('public')->delete($product->image);
         }
 
         $product->delete();

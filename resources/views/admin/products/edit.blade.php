@@ -112,13 +112,13 @@
                     <div class="mb-3">
                         <label for="image" class="form-label">Product Image</label>
 
-                        @if($product->image_url)
+                        @if($product->image)
                         <div class="mb-2">
-                            <img src="{{ $product->image_url }}"
+                            <img src="{{ asset('storage/' . $product->image) }}"
                                 alt="{{ $product->name }}"
                                 class="img-fluid rounded"
                                 style="max-width: 200px;">
-                            <p class="form-text">Current image (Cloudinary)</p>
+                            <p class="form-text">Current image</p>
                         </div>
                         @endif
 

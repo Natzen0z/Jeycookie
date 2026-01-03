@@ -67,12 +67,11 @@
                 @forelse($products as $product)
                 <tr>
                     <td>
-                        @if($product->image_url)
-                        <img src="{{ $product->thumbnail_url ?? $product->image_url }}"
+                        @if($product->image)
+                        <img src="{{ asset('storage/' . $product->image) }}"
                             alt="{{ $product->name }}"
                             class="rounded"
-                            style="width: 50px; height: 50px; object-fit: cover;"
-                            loading="lazy">
+                            style="width: 50px; height: 50px; object-fit: cover;">
                         @else
                         <div class="bg-light rounded d-flex align-items-center justify-content-center"
                             style="width: 50px; height: 50px;">

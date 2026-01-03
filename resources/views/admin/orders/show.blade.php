@@ -64,12 +64,11 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    @if($item->product && $item->product->image_url)
-                                    <img src="{{ $item->product->thumbnail_url ?? $item->product->image_url }}"
+                                    @if($item->product && $item->product->image)
+                                    <img src="{{ asset('storage/' . $item->product->image) }}"
                                         alt="{{ $item->product_name }}"
                                         class="rounded me-2"
-                                        style="width: 40px; height: 40px; object-fit: cover;"
-                                        loading="lazy">
+                                        style="width: 40px; height: 40px; object-fit: cover;">
                                     @endif
                                     {{ $item->product_name }}
                                 </div>

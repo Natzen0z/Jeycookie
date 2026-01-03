@@ -47,7 +47,7 @@
 
         <div class="col-lg-6 text-center mt-4 mt-lg-0">
             <div class="hero-image-wrapper">
-                <img src="https://res.cloudinary.com/dde7nabsx/image/upload/v1767420334/IMG_9251_pbyge9_xjwxgx.jpg"
+                <img src="https://res.cloudinary.com/dppmxyqt4/image/upload/v1767450060/WhatsApp_Image_2026-01-03_at_19.25.39_mrstke.jpg"
                     alt="Delicious Cookies" class="hero-image">
                 <div class="hero-image-badge">
                     <span class="badge-discount">20% OFF</span>
@@ -173,8 +173,8 @@
         <div class="col-6 col-lg-3">
             <div class="product-card h-100">
                 <div class="product-image-wrapper">
-                    @if($product->image_url)
-                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="product-image" loading="lazy">
+                    @if($product->image)
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="product-image">
                     @else
                     <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=300&h=300&fit=crop"
                         alt="{{ $product->name }}" class="product-image">

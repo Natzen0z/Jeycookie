@@ -18,7 +18,7 @@
 <section class="mb-5">
     <div class="row align-items-center g-5">
         <div class="col-lg-6">
-            <img src="{{ asset('images/about.jpg') }}"
+            <img src="https://res.cloudinary.com/dppmxyqt4/image/upload/v1767450060/WhatsApp_Image_2026-01-03_at_19.20.39_sru2be.jpg"
                 alt="Jeycookie Products"
                 class="img-fluid rounded-4 shadow">
         </div>
@@ -91,8 +91,8 @@
     <div class="row g-4 justify-content-center">
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=200&h=200&fit=crop&facepad=3"
-                    alt="Founder"
+                <img src="https://res.cloudinary.com/dppmxyqt4/image/upload/v1767448751/WhatsApp_Image_2026-01-03_at_20.45.00_zge52j.jpg"
+                    alt="Latifah Fauzia"
                     class="team-image mb-3">
                 <h5 class="fw-bold mb-1">Latifah Fauzia</h5>
                 <p class="text-muted small">Founder & Head Baker</p>
@@ -100,17 +100,17 @@
         </div>
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1574966739987-65f38e93b58e?w=200&h=200&fit=crop&facepad=3"
-                    alt="Pastry Chef"
+                <img src="https://res.cloudinary.com/dppmxyqt4/image/upload/v1767448752/Gemini_Generated_Image_8h7h8e8h7h8e8h7h_p1stiy.png"
+                    alt="M.Irfan Janur Ghifari"
                     class="team-image mb-3">
                 <h5 class="fw-bold mb-1">M.Irfan Janur Ghifari</h5>
-                <p class="text-muted small">Backend developer</p>
+                <p class="text-muted small">Backend Developer</p>
             </div>
         </div>
         <div class="col-md-4 col-lg-3">
             <div class="team-card text-center">
-                <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=200&h=200&fit=crop&facepad=3"
-                    alt="Creative"
+                <img src="https://res.cloudinary.com/dppmxyqt4/image/upload/v1767448750/WhatsApp_Image_2026-01-03_at_20.19.30_xjrpdz.jpg"
+                    alt="Muhamad Kaisar Hudayef"
                     class="team-image mb-3">
                 <h5 class="fw-bold mb-1">Muhamad Kaisar Hudayef</h5>
                 <p class="text-muted small">Creative Director</p>

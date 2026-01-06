@@ -39,15 +39,15 @@
         <div class="product-detail-info">
             @if($product->category)
                 <a href="{{ route('products.category', $product->category) }}" 
-                   class="badge bg-pink-50 text-pink text-decoration-none mb-2">
+                   class="badge bg-pink-50 text-pink text-decoration-none mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 600; padding: 0.5rem 1rem; font-size: 0.875rem;">
                     {{ $product->category->name }}
                 </a>
             @endif
 
-            <h1 class="fw-bold mb-2">{{ $product->name }}</h1>
+            <h1 class="fw-bold mb-2" style="font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.1; letter-spacing: -1px;">{{ $product->name }}</h1>
             
             <!-- Rating (placeholder) -->
-            <div class="mb-3">
+            <div class="mb-3" style="font-family: 'Poppins', sans-serif;">
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
@@ -80,56 +80,76 @@
             <!-- Description -->
             @if($product->description)
                 <div class="mb-4">
-                    <h6 class="fw-semibold">Deskripsi</h6>
-                    <p class="text-muted">{{ $product->description }}</p>
+                    <h6 class="fw-semibold" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Deskripsi</h6>
+                    <p class="text-muted" style="font-family: 'Poppins', sans-serif;">{{ $product->description }}</p>
                 </div>
             @endif
 
             <!-- Weight if available -->
             @if($product->weight)
                 <div class="mb-4">
-                    <p class="text-muted">
-                        <i class="fa-solid fa-weight-hanging me-2"></i> 
+                    <p class="text-muted" style="font-family: 'Poppins', sans-serif;">
                         Berat: {{ number_format($product->weight, 0) }} gram
                     </p>
                 </div>
             @endif
 
-            <!-- Add to Cart Form -->
+            <!-- Add to Cart Form & Buy Now Button -->
             @if($product->isInStock())
-                <form action="{{ route('cart.add') }}" method="POST" class="mb-4">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    
-                    <div class="row g-3 align-items-end">
-                        <div class="col-auto">
-                            <label for="quantity" class="form-label">Jumlah</label>
-                            <div class="input-group" style="width: 140px;">
-                                <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty()">
-                                    <i class="fa-solid fa-minus"></i>
-                                </button>
-                                <input type="number" 
-                                       class="form-control text-center" 
-                                       id="quantity" 
-                                       name="quantity" 
-                                       value="1" 
-                                       min="1" 
-                                       max="{{ $product->stock }}">
-                                <button type="button" class="btn btn-outline-secondary" onclick="increaseQty()">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
+                <div class="row g-3 mb-4">
+                    <!-- Add to Cart -->
+                    <div class="col-12">
+                        <form action="{{ route('cart.add') }}" method="POST" id="addToCartForm">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            
+                            <div class="row g-3 align-items-end">
+                                <div class="col-auto">
+                                    <label for="quantity" class="form-label fw-600" style="font-family: 'Poppins', sans-serif;">Jumlah</label>
+                                    <div class="input-group" style="width: 140px;">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="decreaseQty()" style="font-family: 'Poppins', sans-serif;">−</button>
+                                        <input type="number" 
+                                               class="form-control text-center" 
+                                               id="quantity" 
+                                               name="quantity" 
+                                               value="1" 
+                                               min="1" 
+                                               max="{{ $product->stock }}"
+                                               style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="increaseQty()" style="font-family: 'Poppins', sans-serif;">+</button>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-outline-pink btn-lg w-100" style="font-family: 'Poppins', sans-serif; font-weight: 600; border-width: 2px;">
+                                        Keranjang
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-pink btn-lg w-100">
-                                <i class="fa-solid fa-cart-plus me-2"></i> Tambah ke Keranjang
-                            </button>
-                        </div>
+                        </form>
                     </div>
-                </form>
+
+                    <!-- Quick Buy Button (Langsung bayar tanpa login) -->
+                    <div class="col-12">
+                        <button type="button" 
+                                class="btn btn-pink btn-lg w-100"
+                                onclick="openQuickBuyModal({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, {{ $product->stock }})"
+                                style="font-family: 'Poppins', sans-serif; font-weight: 600; padding: 0.875rem 1.5rem; border-radius: 2rem; box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);">
+                            Beli Sekarang (Tanpa Login)
+                        </button>
+                    </div>
+
+                    <!-- Buy Now Button (Add to cart) -->
+                    <div class="col-12">
+                        <form action="{{ route('products.buyNow', $product) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-secondary btn-lg w-100" style="font-family: 'Poppins', sans-serif; font-weight: 600; border-width: 2px;">
+                                Tambah ke Keranjang & Checkout
+                            </button>
+                        </form>
+                    </div>
+                </div>
             @else
                 <div class="alert alert-warning">
-                    <i class="fa-solid fa-info-circle me-2"></i>
                     Produk ini sedang tidak tersedia. Silakan cek kembali nanti.
                 </div>
             @endif
@@ -138,26 +158,22 @@
             <div class="row g-3 mt-2">
                 <div class="col-6">
                     <div class="d-flex align-items-center text-muted">
-                        <i class="fa-solid fa-truck me-2 text-pink"></i>
-                        <small>Pengiriman cepat</small>
+                        <small style="font-family: 'Poppins', sans-serif;">Pengiriman cepat</small>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="d-flex align-items-center text-muted">
-                        <i class="fa-solid fa-shield-halved me-2 text-pink"></i>
-                        <small>Garansi kualitas</small>
+                        <small style="font-family: 'Poppins', sans-serif;">Garansi kualitas</small>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="d-flex align-items-center text-muted">
-                        <i class="fa-solid fa-cookie-bite me-2 text-pink"></i>
-                        <small>Fresh baked daily</small>
+                        <small style="font-family: 'Poppins', sans-serif;">Fresh baked daily</small>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="d-flex align-items-center text-muted">
-                        <i class="fa-solid fa-box me-2 text-pink"></i>
-                        <small>Packaging aman</small>
+                        <small style="font-family: 'Poppins', sans-serif;">Packaging aman</small>
                     </div>
                 </div>
             </div>

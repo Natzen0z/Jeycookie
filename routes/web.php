@@ -30,6 +30,8 @@ Route::view('/about', 'about')->name('about');
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/category/{category:slug}', [ProductController::class, 'byCategory'])->name('products.category');
+Route::post('/products/{product}/buy-now', [CheckoutController::class, 'buyNow'])->name('products.buyNow');
+Route::post('/products/{product}/quick-buy', [CheckoutController::class, 'quickBuy'])->name('products.quickBuy');
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +69,17 @@ Route::post('/logout-confirm', [AuthController::class, 'confirmLogout'])->name('
 |--------------------------------------------------------------------------
 */
 
+/*
+|--------------------------------------------------------------------------
+| Checkout Routes (Checkout & Payment - Guest & Authenticated)
+|--------------------------------------------------------------------------
+*/
+
+// Guest checkout (no auth required)
+Route::get('/checkout/guest', [CheckoutController::class, 'guestCheckout'])->name('checkout.guest');
+Route::post('/checkout/guest/process', [CheckoutController::class, 'processGuest'])->name('checkout.guest.process');
+
+// Authenticated checkout
 Route::middleware('auth')->group(function () {
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');

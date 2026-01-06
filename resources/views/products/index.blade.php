@@ -143,21 +143,32 @@
                                 <a href="{{ route('products.show', $product) }}" class="text-decoration-none">
                                     <h6 class="product-title">{{ $product->name }}</h6>
                                 </a>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="product-price">{{ $product->formatted_price }}</span>
-                                    @if($product->isInStock())
-                                        <form action="{{ route('cart.add') }}" method="POST" class="d-inline">
+                                </div>
+                                @if($product->isInStock())
+                                    <div class="d-grid gap-2">
+                                        <!-- Add to Cart Button -->
+                                        <form action="{{ route('cart.add') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}">
                                             <input type="hidden" name="quantity" value="1">
-                                            <button type="submit" class="btn btn-sm btn-pink" title="Tambah ke Keranjang">
-                                                <i class="fa-solid fa-cart-plus"></i>
+                                            <button type="submit" class="btn btn-sm btn-outline-pink w-100" title="Tambah ke Keranjang">
+                                                <i class="fa-solid fa-cart-plus me-1"></i> Keranjang
                                             </button>
                                         </form>
-                                    @else
-                                        <span class="badge bg-secondary">Habis</span>
-                                    @endif
-                                </div>
+                                        
+                                        <!-- Buy Now Button -->
+                                        <form action="{{ route('products.buyNow', $product) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-pink w-100" title="Beli Sekarang">
+                                                <i class="fa-solid fa-bolt me-1"></i> Beli
+                                            </button>
+                                        </form>
+                                    </div>
+                                @else
+                                    <span class="badge bg-secondary w-100 text-center">Habis</span>
+                                @endif
                             </div>
                         </div>
                     </div>

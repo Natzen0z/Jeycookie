@@ -8,39 +8,30 @@
 <section class="hero-card mb-5">
     <div class="row align-items-center">
         <div class="col-lg-6 hero-left">
-            <h1 class="display-4 fw-bold text-gradient">Enjoy Every Bite Quality Bakes, Curated for You 🍪</h1>
-            <p class="lead text-muted mt-3">
+            <h1 class="display-4 fw-bold text-gradient" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: -1px;">Enjoy Every Bite Quality Bakes, Curated for You</h1>
+            <p class="lead text-muted mt-3" style="font-family: 'Poppins', sans-serif; font-weight: 400;">
                 Bakery offering fresh breads, donuts, cookies, <br>and premium snack box for any occasion.
             </p>
 
             <div class="mt-4 d-flex gap-3 flex-wrap">
-                <a href="{{ route('products.index') }}" class="btn btn-pink btn-lg px-4">
-                    <i class="fa-solid fa-shopping-bag me-2"></i> Shop Now
+                <a href="{{ route('products.index') }}" class="btn btn-pink btn-lg px-4" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                    Shop Now
                 </a>
-                <a href="#categories" class="btn btn-outline-pink btn-lg px-4">
-                    <i class="fa-solid fa-th-large me-2"></i> Browse Categories
+                <a href="#categories" class="btn btn-outline-pink btn-lg px-4" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                    Browse Categories
                 </a>
             </div>
 
             <!-- Feature Badges -->
             <div class="d-flex gap-4 mt-4 flex-wrap">
                 <div class="d-flex align-items-center">
-                    <div class="feature-icon-sm">
-                        <i class="fa-solid fa-fire text-danger"></i>
-                    </div>
-                    <small class="text-muted ms-2">Fresh Daily</small>
+                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Fresh Daily</small>
                 </div>
                 <div class="d-flex align-items-center">
-                    <div class="feature-icon-sm">
-                        <i class="fa-solid fa-leaf text-success"></i>
-                    </div>
-                    <small class="text-muted ms-2">Natural Ingredients</small>
+                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Natural Ingredients</small>
                 </div>
                 <div class="d-flex align-items-center">
-                    <div class="feature-icon-sm">
-                        <i class="fa-solid fa-truck text-primary"></i>
-                    </div>
-                    <small class="text-muted ms-2">Fast Delivery</small>
+                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Fast Delivery</small>
                 </div>
             </div>
         </div>

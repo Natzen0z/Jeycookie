@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,37 +12,19 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // Dummy data produk
-        $products = [
-            [
-                'id' => 1,
-                'name' => 'Choco Cookie',
-                'price' => 15000,
-                'category' => 'Cookies'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Vanilla Cake',
-                'price' => 30000,
-                'category' => 'Cake'
-            ]
-        ];
+        // Ambil semua produk dari database
+        $products = Product::latest()->get();
 
         return view('products.index', compact('products'));
     }
 
     /**
-     * Menampilkan detail produk
+     * Menampilkan detail produk berdasarkan ID
      */
     public function show($id)
     {
-        // Dummy produk tunggal
-        $product = [
-            'id' => $id,
-            'name' => 'Choco Cookie',
-            'price' => 15000,
-            'description' => 'Cookie coklat lembut dan manis'
-        ];
+        // Ambil produk, jika tidak ada → 404 otomatis
+        $product = Product::findOrFail($id);
 
         return view('products.show', compact('product'));
     }

@@ -19,10 +19,9 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        // Force HTTPS in production (required for Railway with load balancers)
-        if (app()->environment('production')) {
-            URL::forceScheme('https');
-        }
+{
+    if (app()->environment('production')) {
+        \Illuminate\Support\Facades\URL::forceScheme('https');
     }
+}
 }

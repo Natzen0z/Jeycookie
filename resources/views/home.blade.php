@@ -4,100 +4,174 @@
 
 @section('content')
 
-<!-- HERO -->
-<section class="hero-card mb-5">
-    <div class="row align-items-center">
-        <div class="col-lg-6 hero-left">
-            <h1 class="display-4 fw-bold text-gradient" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: -1px;">Enjoy Every Bite Quality Bakes, Curated for You</h1>
-            <p class="lead text-muted mt-3" style="font-family: 'Poppins', sans-serif; font-weight: 400;">
-                Bakery offering fresh breads, donuts, cookies, <br>and premium snack box for any occasion.
+<!-- HERO SECTION -->
+<section class="mb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Hero Text -->
+        <div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">
+                Enjoy Every Bite<br>Quality Bakes, Curated for You
+            </h1>
+            <p class="text-gray-600 text-lg mb-6">
+                Bakery offering fresh breads, donuts, cookies, and premium snack box for any occasion.
             </p>
 
-            <div class="mt-4 d-flex gap-3 flex-wrap">
-                <a href="{{ route('products.index') }}" class="btn btn-pink btn-lg px-4" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                <a href="{{ route('products.index') }}" class="bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition text-center">
                     Shop Now
                 </a>
-                <a href="#categories" class="btn btn-outline-pink btn-lg px-4" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                <a href="#categories" class="border-2 border-pink-500 text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-pink-50 transition text-center">
                     Browse Categories
                 </a>
             </div>
 
             <!-- Feature Badges -->
-            <div class="d-flex gap-4 mt-4 flex-wrap">
-                <div class="d-flex align-items-center">
-                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Fresh Daily</small>
+            <div class="flex flex-wrap gap-6">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-star text-pink-500 text-lg"></i>
+                    <span class="text-gray-700">Fresh Daily</span>
                 </div>
-                <div class="d-flex align-items-center">
-                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Natural Ingredients</small>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-leaf text-green-500 text-lg"></i>
+                    <span class="text-gray-700">Natural Ingredients</span>
                 </div>
-                <div class="d-flex align-items-center">
-                    <small class="text-muted" style="font-family: 'Poppins', sans-serif;">Fast Delivery</small>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-rocket text-blue-500 text-lg"></i>
+                    <span class="text-gray-700">Fast Delivery</span>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-6 text-center mt-4 mt-lg-0">
-            <div class="hero-image-wrapper">
-                <img src="https://res.cloudinary.com/dde7nabsx/image/upload/v1767420334/IMG_9251_pbyge9_xjwxgx.jpg"
-                    alt="Delicious Cookies" class="hero-image">
-                <div class="hero-image-badge">
-                    <span class="badge-discount">20% OFF</span>
-                    <span class="badge-text">First Order</span>
-                </div>
+        <!-- Hero Image -->
+        <div class="relative">
+            <img src="https://res.cloudinary.com/dde7nabsx/image/upload/v1767420334/IMG_9251_pbyge9_xjwxgx.jpg"
+                 alt="Delicious Cookies" class="rounded-lg shadow-xl w-full h-auto">
+            <div class="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg font-bold">
+                20% OFF <br><span class="text-sm font-normal">First Order</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FEATURES -->
-<section class="mb-5">
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-solid fa-cookie-bite"></i>
-                </div>
-                <h5 class="fw-bold mt-3">Freshly Baked</h5>
-                <p class="text-muted small mb-0">Setiap produk dipanggang segar dari oven setiap hari.</p>
-            </div>
+<!-- FEATURES SECTION -->
+<section class="mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">🎂</div>
+            <h5 class="font-bold text-lg mb-2">Freshly Baked</h5>
+            <p class="text-gray-600 text-sm">Setiap produk dipanggang segar dari oven setiap hari.</p>
         </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-solid fa-award"></i>
-                </div>
-                <h5 class="fw-bold mt-3">Premium Quality</h5>
-                <p class="text-muted small mb-0">Hanya menggunakan bahan-bahan berkualitas tinggi.</p>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">⭐</div>
+            <h5 class="font-bold text-lg mb-2">Premium Quality</h5>
+            <p class="text-gray-600 text-sm">Hanya menggunakan bahan-bahan berkualitas tinggi.</p>
         </div>
-        <div class="col-md-4">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-solid fa-truck-fast"></i>
-                </div>
-                <h5 class="fw-bold mt-3">Fast Delivery</h5>
-                <p class="text-muted small mb-0">Pesanan dikirim cepat dan dikemas dengan aman.</p>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-4xl mb-4">🚚</div>
+            <h5 class="font-bold text-lg mb-2">Fast Delivery</h5>
+            <p class="text-gray-600 text-sm">Pesanan dikirim cepat dan dikemas dengan aman.</p>
         </div>
     </div>
 </section>
 
-<!-- CATEGORIES -->
-<section id="categories" class="mb-5">
-    <div class="section-header text-center mb-4">
-        <h2 class="fw-bold">Browse by Category</h2>
-        <p class="text-muted">Temukan produk favorit berdasarkan kategori</p>
+<!-- CATEGORIES SECTION -->
+<section id="categories" class="mb-12">
+    <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold mb-2">Browse by Category</h2>
+        <p class="text-gray-600">Temukan produk favorit berdasarkan kategori</p>
     </div>
 
-    <div class="row g-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         @forelse($categories as $category)
-        <div class="col-6 col-md-3">
-            <a href="{{ route('products.category', $category->slug) }}" class="category-card text-decoration-none">
-                <div class="category-icon">
+        <a href="{{ route('products.category', $category->slug) }}" class="group">
+            <div class="bg-white rounded-lg p-4 text-center hover:shadow-lg transition cursor-pointer">
+                <div class="text-5xl mb-3">
                     @switch($category->name)
-                    @case('Cookies')
-                    🍪
-                    @break
+                        @case('Cookies') 🍪 @break
+                        @case('Donut') 🍩 @break
+                        @case('Bread') 🍞 @break
+                        @case('Cake') 🎂 @break
+                        @default 🥐
+                    @endswitch
+                </div>
+                <h5 class="font-bold text-gray-800 group-hover:text-pink-600 transition">{{ $category->name }}</h5>
+                <p class="text-sm text-gray-500">{{ $category->products_count ?? 0 }} produk</p>
+            </div>
+        </a>
+        @empty
+        <p class="col-span-full text-center text-gray-500">Tidak ada kategori</p>
+        @endforelse
+    </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="mb-12">
+    <div class="text-center mb-8">
+        <h2 class="text-4xl font-bold mb-2">Featured Products</h2>
+        <p class="text-gray-600">Produk pilihan terbaru kami</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @forelse($products as $product)
+        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition group">
+            <!-- Product Image -->
+            <div class="relative overflow-hidden h-48 bg-gray-100">
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition">
+                @if(!$product->is_active || $product->stock <= 0)
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <span class="text-white font-bold">Out of Stock</span>
+                    </div>
+                @endif
+            </div>
+
+            <!-- Product Info -->
+            <div class="p-4">
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <h5 class="font-bold text-gray-800">{{ $product->name }}</h5>
+                        <p class="text-sm text-gray-500">{{ $product->category->name ?? 'No Category' }}</p>
+                    </div>
+                    @if($product->stock <= 5)
+                        <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">Limited</span>
+                    @endif
+                </div>
+
+                <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ $product->description }}</p>
+
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-2xl font-bold text-pink-600">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                    <span class="text-sm text-gray-500">Stock: {{ $product->stock }}</span>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex gap-2">
+                    <a href="{{ route('products.show', $product->slug) }}" class="flex-1 bg-gray-100 text-gray-800 py-2 rounded-lg text-center font-semibold hover:bg-gray-200 transition">
+                        View
+                    </a>
+                    @if($product->is_active && $product->stock > 0)
+                        <button onclick="openQuickBuyModal({{ $product->id }}, '{{ addslashes($product->name) }}', {{ $product->price }}, {{ $product->stock }})" 
+                                class="flex-1 bg-gradient-to-r from-pink-500 to-pink-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition">
+                            Quick Buy
+                        </button>
+                    @endif
+                </div>
+            </div>
+        </div>
+        @empty
+        <p class="col-span-full text-center text-gray-500 py-8">Tidak ada produk tersedia</p>
+        @endforelse
+    </div>
+
+    <div class="text-center mt-8">
+        <a href="{{ route('products.index') }}" class="inline-block border-2 border-pink-500 text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-pink-50 transition">
+            View All Products
+        </a>
+    </div>
+</section>
+
+@endsection
                     @case('Donuts')
                     🍩
                     @break

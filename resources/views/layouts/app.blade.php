@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Jeycookie') }} - @yield('title', 'Fresh Bakery')</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,167 +18,182 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <!-- Tailwind CSS + DaisyUI -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     @stack('styles')
 </head>
 
-<body class="bg-base-200">
+<body class="bg-soft-peach">
 
     <!-- NAVBAR -->
-    <navbar class="navbar sticky top-0 z-50 bg-base-100 shadow-lg">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <button class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </button>
-                <ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ route('products.index') }}">Products</a></li>
-                    <li><a href="{{ url('/about') }}">About</a></li>
-                </ul>
-            </div>
-            <a href="{{ url('/') }}" class="btn btn-ghost text-xl gap-2">
-                <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="h-8 w-auto">
-                Jeycookie
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm navbar-custom">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="brand-logo" style="height: 45px; width: auto;">
+                <span class="ms-2 brand-text">Jeycookie</span>
             </a>
-        </div>
 
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
-                <li><a href="{{ route('products.index') }}" class="{{ request()->is('products*') ? 'active' : '' }}">Products</a></li>
-                <li><a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About</a></li>
-            </ul>
-        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="navbar-end gap-2">
-            <div class="indicator">
-                <a href="{{ route('cart.index') }}" class="btn btn-ghost btn-circle">
-                    @php $cartCount = count(session('cart', [])); @endphp
-                    @if($cartCount > 0)
-                        <span class="indicator-item badge badge-primary badge-sm">{{ $cartCount }}</span>
-                    @endif
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                </a>
-            </div>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('products*') ? 'active' : '' }}" href="{{ route('products.index') }}">
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="{{ url('/about') }}">
+                            About
+                        </a>
+                    </li>
+                    
+                    <!-- Cart -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative {{ request()->is('cart') ? 'active' : '' }}" href="{{ route('cart.index') }}" style="font-family: 'Poppins', sans-serif;">
+                            Cart
+                            @php
+                                $cartCount = count(session('cart', []));
+                            @endphp
+                            @if($cartCount > 0)
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
+                                    {{ $cartCount }}
+                                </span>
+                            @endif
+                        </a>
+                    </li>
+                </ul>
 
-            @guest
-                <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Login</a>
-            @else
-                <div class="dropdown dropdown-end">
-                    <button class="btn btn-primary btn-sm gap-2">
-                        {{ Auth::user()->name }}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    <ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a href="{{ route('orders.index') }}">My Orders</a></li>
-                        @if(Auth::user()->is_admin)
-                            <li><a href="{{ route('admin.dashboard') }}">Admin Panel</a></li>
-                        @endif
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
-                                @csrf
-                                <button type="submit">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
+                <!-- Auth Section -->
+                <div class="ms-lg-3 d-flex align-items-center gap-2">
+                    @guest
+                        <a href="{{ route('login') }}" class="btn btn-outline-pink" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                            Login
+                        </a>
+                    @else
+                        <div class="dropdown">
+                            <button class="btn btn-pink dropdown-toggle" type="button" data-bs-toggle="dropdown" style="font-family: 'Poppins', sans-serif; font-weight: 600;">
+                                {{ Auth::user()->name }}
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('orders.index') }}" style="font-family: 'Poppins', sans-serif;">
+                                        My Orders
+                                    </a>
+                                </li>
+                                @if(Auth::user()->is_admin)
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}" style="font-family: 'Poppins', sans-serif;">
+                                            Admin Panel
+                                        </a>
+                                    </li>
+                                @endif
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item text-danger" style="font-family: 'Poppins', sans-serif;">
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    @endguest
                 </div>
-            @endguest
+            </div>
         </div>
-    </navbar>
+    </nav>
 
     <!-- Flash Messages -->
-    @if(session('success'))
-        <div class="alert alert-success mb-4 shadow-lg">
-            <i class="fas fa-check-circle text-lg"></i>
-            <div>
-                <h3 class="font-bold">Success!</h3>
-                <div class="text-sm">{{ session('success') }}</div>
+    <div class="container mt-3">
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-check-circle me-2"></i> {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
-            <button class="btn btn-sm btn-ghost" onclick="this.parentElement.style.display='none'">Close</button>
-        </div>
-    @endif
-    @if(session('error'))
-        <div class="alert alert-error mb-4 shadow-lg">
-            <i class="fas fa-exclamation-circle text-lg"></i>
-            <div>
-                <h3 class="font-bold">Error!</h3>
-                <div class="text-sm">{{ session('error') }}</div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-exclamation-circle me-2"></i> {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
-            <button class="btn btn-sm btn-ghost" onclick="this.parentElement.style.display='none'">Close</button>
-        </div>
-    @endif
-    @if(session('warning'))
-        <div class="alert alert-warning mb-4 shadow-lg">
-            <i class="fas fa-exclamation-triangle text-lg"></i>
-            <div>
-                <h3 class="font-bold">Warning!</h3>
-                <div class="text-sm">{{ session('warning') }}</div>
+        @endif
+        @if(session('warning'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-exclamation-triangle me-2"></i> {{ session('warning') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
-            <button class="btn btn-sm btn-ghost" onclick="this.parentElement.style.display='none'">Close</button>
-        </div>
-    @endif
+        @endif
+    </div>
 
     <!-- MAIN CONTENT -->
-    <main class="min-h-screen py-8">
-        <div class="container mx-auto px-4">
+    <main class="py-4">
+        <div class="container">
             @yield('content')
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer footer-center bg-gray-900 text-white p-10">
-        <div class="w-full">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 w-full">
-                <!-- Brand -->
-                <div class="text-left">
-                    <div class="flex items-center gap-2 mb-3">
-                        <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="h-10 w-auto">
-                        <span class="text-lg font-bold">Jeycookie</span>
+    <footer class="footer bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="footer-logo" style="height: 50px; width: auto;">
+                        <span class="ms-2 fs-4 fw-bold">Jeycookie</span>
                     </div>
-                    <p class="text-gray-400 text-sm mb-4">Fresh homemade bakery products made with love. Premium ingredients, baked fresh daily.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="link link-hover text-pink-500 text-lg"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="link link-hover text-pink-500 text-lg"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="link link-hover text-pink-500 text-lg"><i class="fab fa-whatsapp"></i></a>
+                    <p class="text-white-50">Fresh homemade bakery products made with love. Premium ingredients, baked fresh daily.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
-                <div class="text-left">
-                    <h2 class="footer-title">Quick Links</h2>
-                    <a href="{{ url('/') }}" class="link link-hover text-gray-400 hover:text-pink-500">Home</a>
-                    <a href="{{ route('products.index') }}" class="link link-hover text-gray-400 hover:text-pink-500">Products</a>
-                    <a href="{{ url('/about') }}" class="link link-hover text-gray-400 hover:text-pink-500">About Us</a>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ route('products.index') }}">Products</a></li>
+                        <li><a href="{{ url('/about') }}">About Us</a></li>
+                    </ul>
                 </div>
-
-                <!-- Categories -->
-                <div class="text-left">
-                    <h2 class="footer-title">Categories</h2>
-                    <a href="#" class="link link-hover text-gray-400 hover:text-pink-500">Sweet</a>
-                    <a href="#" class="link link-hover text-gray-400 hover:text-pink-500">Savory</a>
-                    <a href="#" class="link link-hover text-gray-400 hover:text-pink-500">Donut</a>
-                    <a href="#" class="link link-hover text-gray-400 hover:text-pink-500">Traditional Cake</a>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Sweet</a></li>
+                        <li><a href="#">Savory</a></li>
+                        <li><a href="#">Donut</a></li>
+                        <li><a href="#">Traditional Cake</a></li>
+                    </ul>
                 </div>
-
-                <!-- Contact -->
-                <div class="text-left">
-                    <h2 class="footer-title">Contact Us</h2>
-                    <p class="text-gray-400"><i class="fas fa-map-marker-alt text-pink-500 mr-2"></i>Jakarta, Indonesia</p>
-                    <p class="text-gray-400"><i class="fas fa-phone text-pink-500 mr-2"></i>+62 812-3456-7890</p>
-                    <p class="text-gray-400"><i class="fas fa-envelope text-pink-500 mr-2"></i>hello@jeycookie.com</p>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i> Jakarta, Indonesia</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2"></i> +62 812-3456-7890</li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> hello@jeycookie.com</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="divider my-4"></div>
-
-            <div class="text-center text-gray-400 text-sm">
-                <p>&copy; {{ date('Y') }} Jeycookie. All rights reserved. Freshly baked with <i class="fas fa-heart text-red-500"></i></p>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-white-50">
+                <small>&copy; {{ date('Y') }} Jeycookie. All rights reserved. Freshly baked with <i class="fa-solid fa-heart text-danger"></i></small>
             </div>
         </div>
     </footer>
+
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Midtrans Snap Script -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
@@ -187,4 +205,3 @@
 </body>
 
 </html>
-

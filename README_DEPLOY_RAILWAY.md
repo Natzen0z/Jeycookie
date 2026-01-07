@@ -26,3 +26,17 @@ export RAILWAY_PROJECT="<your_project_id>"
 Notes:
 - Add `RAILWAY_TOKEN` and `RAILWAY_PROJECT` as GitHub secrets if you want a workflow to deploy automatically.
 - The `Procfile` provided uses `vendor/bin/heroku-php-apache2 public/` which works on many container-based PHP hosts.
+
+Local vs Production env files
+---------------------------------
+To make local development safe and avoid leaking production credentials:
+
+- Use `.env.local` for development (this repo includes an example `.env.local`). It points to SQLite and enables `APP_DEBUG`.
+- Use `.env.production.example` as a template for Railway; fill values on the Railway Dashboard **Variables** panel or copy into `.env` on the server.
+
+Workflow recommendation:
+
+1. Keep `.env` out of source control. Commit only `.env.production.example` and `.env.local` examples.
+2. On Railway, set the exact variables (including `APP_KEY`) in the Variables tab — do not paste secrets into Git.
+3. CI should build assets and the deploy script or Railway CLI will run `php artisan migrate --force`.
+

@@ -4,25 +4,37 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< Updated upstream
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Jeycookie') }} - @yield('title', 'Fresh Bakery')</title>
+=======
+    <title>{{ config('app.name', 'JeeyCookie') }} - @yield('title')</title>
+>>>>>>> Stashed changes
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<<<<<<< Updated upstream
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
+=======
+    <!-- Optional icons -->
+>>>>>>> Stashed changes
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
+<<<<<<< Updated upstream
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     @stack('styles')
+=======
+    @stack('head')
+>>>>>>> Stashed changes
 </head>
 
 <body class="bg-soft-peach">
@@ -31,8 +43,13 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm navbar-custom">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+<<<<<<< Updated upstream
                 <img src="{{ asset('images/logo.png') }}" alt="Jeycookie" class="brand-logo" style="height: 45px; width: auto;">
                 <span class="ms-2 brand-text">Jeycookie</span>
+=======
+                <div class="brand-badge">🍩</div>
+                <span class="ms-2 brand-text">JeeyCookie</span>
+>>>>>>> Stashed changes
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -41,6 +58,7 @@
 
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav ms-auto align-items-lg-center">
+<<<<<<< Updated upstream
                     <li class="nav-item">
                         <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">
                             Home
@@ -110,10 +128,20 @@
                         </div>
                     @endguest
                 </div>
+=======
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/order') }}">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/partnership') }}">Partnership</a></li>
+                </ul>
+
+                <a href="{{ url('/order') }}" class="btn btn-pink ms-lg-3 d-none d-lg-inline-block">Buy Now</a>
+>>>>>>> Stashed changes
             </div>
         </div>
     </nav>
 
+<<<<<<< Updated upstream
     <!-- Flash Messages -->
     <div class="container mt-3">
         @if(session('success'))
@@ -138,11 +166,16 @@
 
     <!-- MAIN CONTENT -->
     <main class="py-4">
+=======
+    <!-- MAIN CONTENT -->
+    <main class="py-5">
+>>>>>>> Stashed changes
         <div class="container">
             @yield('content')
         </div>
     </main>
 
+<<<<<<< Updated upstream
     <!-- FOOTER -->
     <footer class="footer bg-dark text-white py-5 mt-5">
         <div class="container">
@@ -189,12 +222,20 @@
             <div class="text-center text-white-50">
                 <small>&copy; {{ date('Y') }} Jeycookie. All rights reserved. Freshly baked with <i class="fa-solid fa-heart text-danger"></i></small>
             </div>
+=======
+    <!-- FOOTER (simple fallback; pages can extend if needed) -->
+    <footer class="footer bg-cream py-5">
+        <div class="container text-center">
+            <p class="mb-1">&copy; {{ date('Y') }} JeeyCookie. Freshly baked with love.</p>
+            <small class="text-muted">Follow us on <i class="fa-brands fa-instagram"></i> @jeeycookie</small>
+>>>>>>> Stashed changes
         </div>
     </footer>
 
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<<<<<<< Updated upstream
     <!-- Midtrans Snap Script -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
 
@@ -205,3 +246,9 @@
 </body>
 
 </html>
+=======
+    @stack('scripts')
+</body>
+
+</html>
+>>>>>>> Stashed changes

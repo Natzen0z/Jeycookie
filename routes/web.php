@@ -47,6 +47,7 @@ Route::prefix('cart')->name('cart.')->group(function () {
     Route::delete('/clear', [CartController::class, 'clear'])->name('clear');
 });
 
+<<<<<<< Updated upstream
 /*
 |--------------------------------------------------------------------------
 | Authentication Routes
@@ -127,3 +128,12 @@ Route::middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])
 */
 
 Route::post('/payment/notification', [CheckoutController::class, 'notification'])->name('payment.notification');
+=======
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::view('/about', 'about');
+Route::view('/order', 'order');
+Route::post('/partnership/store', [PartnershipController::class, 'store'])->name('partnership.store');
+>>>>>>> Stashed changes

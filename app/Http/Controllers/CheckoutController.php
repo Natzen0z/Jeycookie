@@ -306,8 +306,8 @@ class CheckoutController extends Controller
      */
     public function payment(Order $order)
     {
-        // Ensure user owns this order
-        if ($order->user_id !== Auth::id()) {
+        // Ensure user owns this order (or is guest order)
+        if ($order->user_id !== null && $order->user_id !== Auth::id()) {
             abort(403);
         }
 
@@ -319,21 +319,19 @@ class CheckoutController extends Controller
 
         $order->load('items');
 
-        // Generate Midtrans Snap Token
+        // Try to generate Midtrans Snap Token (optional for local testing)
         try {
-            if (!$order->snap_token) {
+            if (!$order->snap_token && config('midtrans.server_key')) {
                 $midtransService = new MidtransService();
                 $snapToken = $midtransService->generateSnapToken($order);
                 
                 if ($snapToken) {
                     $order->update(['snap_token' => $snapToken]);
-                } else {
-                    return back()->with('error', 'Gagal membuat token pembayaran. Silakan coba lagi.');
                 }
             }
         } catch (\Exception $e) {
-            Log::error('Midtrans Snap Token Error: ' . $e->getMessage());
-            return back()->with('error', 'Gagal membuat token pembayaran. Silakan coba lagi.');
+            Log::warning('Midtrans Snap Token Error (continuing with dummy payment): ' . $e->getMessage());
+            // Continue without Midtrans - dummy payment will work
         }
 
         return view('checkout.payment', compact('order'));
@@ -401,8 +399,8 @@ class CheckoutController extends Controller
      */
     public function confirmPayment(Request $request, Order $order)
     {
-        // Ensure user owns this order
-        if ($order->user_id !== Auth::id()) {
+        // Ensure user owns this order (or is guest order)
+        if ($order->user_id !== null && $order->user_id !== Auth::id()) {
             abort(403);
         }
 
@@ -411,9 +409,8 @@ class CheckoutController extends Controller
                 ->with('info', 'Pesanan sudah dibayar sebelumnya.');
         }
 
-        // In real implementation, this would verify with Midtrans API
-        // For now, we'll just mark as paid (for demo)
-        $order->markAsPaid('MANUAL-' . time());
+        // Mark as paid (for demo/testing)
+        $order->markAsPaid('DEMO-' . time());
 
         // Send order confirmation email
         try {

@@ -23,19 +23,34 @@
                         <h3 class="fw-bold text-pink mb-0">{{ $order->formatted_total }}</h3>
                     </div>
                     
+                    <!-- Dummy Payment for Local Testing -->
+                    <div class="alert alert-warning small mb-3">
+                        <i class="fa-solid fa-flask me-1"></i>
+                        <strong>Mode Demo:</strong> Gunakan tombol di bawah untuk simulasi pembayaran
+                    </div>
+                    
+                    <form action="{{ route('checkout.confirm', $order) }}" method="POST" class="mb-3">
+                        @csrf
+                        <button type="submit" class="btn btn-success btn-lg w-100">
+                            <i class="fa-solid fa-check-circle me-2"></i> Simulasi Pembayaran Berhasil
+                        </button>
+                    </form>
+                    
+                    <hr class="my-3">
+                    
                     <div class="alert alert-info small">
                         <i class="fa-solid fa-info-circle me-1"></i>
-                        Anda akan diarahkan ke halaman pembayaran Midtrans
+                        Atau gunakan Midtrans untuk pembayaran asli
                     </div>
                     
                     @if($order->snap_token)
                         <button id="pay-button" class="btn btn-pink btn-lg w-100">
-                            <i class="fa-solid fa-credit-card me-2"></i> Proses Pembayaran
+                            <i class="fa-solid fa-credit-card me-2"></i> Bayar via Midtrans
                         </button>
                     @else
-                        <div class="alert alert-danger">
-                            Gagal membuat token pembayaran. Silakan refresh halaman ini.
-                        </div>
+                        <button id="pay-button" class="btn btn-pink btn-lg w-100" disabled>
+                            <i class="fa-solid fa-credit-card me-2"></i> Midtrans (Token tidak tersedia)
+                        </button>
                     @endif
                 </div>
             </div>

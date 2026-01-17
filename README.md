@@ -6,6 +6,8 @@ Toko Roti JIYA (Jeycookie) is a web-based e-commerce application developed for a
 
 This project was developed as part of the Web Framework course assignment.
 
+**Berikut link YouTube untuk project ini:** [https://youtu.be/0hs36cG4ZmE](https://youtu.be/0hs36cG4ZmE)
+
 ---
 
 ## Table of Contents
